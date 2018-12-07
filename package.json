@@ -1,0 +1,9 @@
+{
+  "name": "code-advent",
+  "version": "1.0.0",
+  "description": "Solutions for Code Advent 2018",
+  "license": "MIT",
+  "scripts": {
+    "day-1": "node ./1/first.js && node ./1/second.js"
+  }
+}
