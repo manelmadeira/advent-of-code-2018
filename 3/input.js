@@ -1,4 +1,4 @@
-module.exports = [
+const input = [
   '#1 @258, 327: 19x22',
   '#2 @553, 11: 13x13',
   '#3 @619, 175: 17x20',
@@ -1311,3 +1311,21 @@ module.exports = [
   '#1310 @336, 21: 19x16',
 '#1311 @420, 598: 20x26'
 ]
+
+function parseInput(str) {
+  const regex1 = /#(\d+)\s@(\d+),\s(\d+):\s(\d+)x(\d+)/;
+  const [allStr, id, leftOffset, topOffset, width, height] = regex1.exec(str)
+
+  return {
+    id,
+    leftOffset: parseInt(leftOffset),
+    topOffset: parseInt(topOffset),
+    width: parseInt(width),
+    height: parseInt(height)
+  }
+}
+
+module.exports = {
+  claims: input,
+  parseInput
+}

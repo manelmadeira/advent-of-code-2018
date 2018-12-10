@@ -8,34 +8,6 @@ What is the ID of the only claim that doesn't overlap?
 
 const input = require('./input')
 
-function parseInput(str) {
-  const id = str.split('@')[0].trim()
-  const leftOffset = str.split('@')[1]
-    .split(',')[0]
-  const topOffset = str.split('@')[1]
-    .split(',')[1]
-    .split(':')[0]
-    .trim()
-  const width = str.split('@')[1]
-    .split(',')[1]
-    .split(':')[1]
-    .split('x')[0]
-    .trim()
-  const height = str.split('@')[1]
-    .split(',')[1]
-    .split(':')[1]
-    .split('x')[1]
-    .trim()
-
-  return {
-    id,
-    leftOffset: parseInt(leftOffset),
-    topOffset: parseInt(topOffset),
-    width: parseInt(width),
-    height: parseInt(height)
-  }
-}
-
 // create a 1000x1000 array and initialize
 const matrix = (new Array(1000))
 
@@ -49,8 +21,8 @@ for (let i = 0; i < matrix.length; i++) {
 const canBeLonelyClaims = {}
 
 // fill the matrix with all claims
-input.forEach((claim) => {
-  const { id, topOffset, leftOffset, height, width } = parseInput(claim)
+input.claims.forEach((claim) => {
+  const { id, topOffset, leftOffset, height, width } = input.parseInput(claim)
   let canBeLonely = true
 
   for (let i = topOffset; i < topOffset + height; i++) {

@@ -42,34 +42,6 @@ If the Elves all proceed with their own plans, none of them will have enough fab
 
 const input = require('./input')
 
-function parseInput(str) {
-  const id = str.split('@')[0].trim()
-  const leftOffset = str.split('@')[1]
-    .split(',')[0]
-  const topOffset = str.split('@')[1]
-    .split(',')[1]
-    .split(':')[0]
-    .trim()
-  const width = str.split('@')[1]
-    .split(',')[1]
-    .split(':')[1]
-    .split('x')[0]
-    .trim()
-  const height = str.split('@')[1]
-    .split(',')[1]
-    .split(':')[1]
-    .split('x')[1]
-    .trim()
-
-  return {
-    id,
-    leftOffset: parseInt(leftOffset),
-    topOffset: parseInt(topOffset),
-    width: parseInt(width),
-    height: parseInt(height)
-  }
-}
-
 // helper method for debug (easier to read with small matrixes)
 function printMatrix(matrix) {
   for (let i = 0; i < matrix.length; i++) {
@@ -94,8 +66,8 @@ for (let i = 0; i < matrix.length; i++) {
   }
 }
 
-input.forEach((claim) => {
-  const { id, topOffset, leftOffset, height, width } = parseInput(claim)
+input.claims.forEach((claim) => {
+  const { id, topOffset, leftOffset, height, width } = input.parseInput(claim)
 
   for (let i = topOffset; i < topOffset + height; i++) {
     for (let j = leftOffset; j < leftOffset + width; j++) {
