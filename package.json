@@ -6,6 +6,6 @@
   "scripts": {
     "day-1": "node ./1/first.js && node ./1/second.js",
     "day-2": "node ./2/first.js && node ./2/second.js",
-    "day-3": "node ./3/first.js"
+    "day-3": "node ./3/first.js && node ./3/second.js"
   }
 }
