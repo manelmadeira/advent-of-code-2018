@@ -7,6 +7,7 @@
     "day-1": "node ./1/first.js && node ./1/second.js",
     "day-2": "node ./2/first.js && node ./2/second.js",
     "day-3": "node ./3/first.js && node ./3/second.js",
-    "day-4": "node ./4/first.js && node ./4/second.js"
+    "day-4": "node ./4/first.js && node ./4/second.js",
+    "day-5": "node --stack-size=65500 ./5/first.js && node --stack-size=65500 ./5/second.js"
   }
 }
