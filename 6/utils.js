@@ -123,10 +123,18 @@ const findNearestPoint = (points, x1, y1) => {
   return '. '
 }
 
+const calculateTotalDistance = (points, x1, y1) => {
+  return Object.keys(points).reduce((acc, key) => {
+    const [y2, x2] = points[key]
+    return acc + (Math.abs(x1 - x2) + Math.abs(y1 - y2))
+  }, 0)
+}
+
 module.exports = {
   testInput,
   input,
   printMatrix,
   createMatrix,
-  findNearestPoint
+  findNearestPoint,
+  calculateTotalDistance
 }
